@@ -1,14 +1,16 @@
 FROM python:latest
-
 WORKDIR /app
 
-# Pehle requirements copy karo
+# Debug step - check files (optional)
+RUN ls -la
+
+# Copy requirements first
 COPY requirements.txt .
 
-# Phir dependencies install karo
-RUN pip install -r requirements.txt
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Baaki files copy karo
+# Copy rest of the files
 COPY . .
 
-CMD ["python", "app.py"]  # ya jo bhi tumhara main file hai
+CMD ["python", "bot.py"]  # ya jo main file ho
