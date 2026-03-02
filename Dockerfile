@@ -2,13 +2,13 @@ FROM python:latest
 
 WORKDIR /app
 
-# Copy requirements first
+# Pehle requirements copy karo
 COPY requirements.txt .
 
-# Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# Phir dependencies install karo
+RUN pip install -r requirements.txt
 
-# Copy rest of the code
+# Baaki files copy karo
 COPY . .
 
-CMD ["python3", "-m", "FallenRobot"]
+CMD ["python", "app.py"]  # ya jo bhi tumhara main file hai
